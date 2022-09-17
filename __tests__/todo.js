@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 const todo = require("../todo");
-const { all, add, markAsComplete } = todo();
+const { all, add, markAsComplete, overdue, dueToday, dueLater } = todo();
 
 describe("TODO test suite", () => {
   beforeAll(() => {
@@ -23,5 +23,14 @@ describe("TODO test suite", () => {
     all[0].completed = false;
     markAsComplete(0);
     expect(all[0].completed).toBe(true);
+  });
+  test("Over due tasks", () => {
+    expect(overdue(all)).toBeDefined();
+  });
+  test("Due today tasks", () => {
+    expect(dueToday(all)).toBeDefined();
+  });
+  test("Due later tasks", () => {
+    expect(dueLater(all)).toBeDefined();
   });
 });
