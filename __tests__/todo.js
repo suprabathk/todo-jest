@@ -34,7 +34,7 @@ describe("TODO test suite", () => {
       dueDate: yesterday.toLocaleDateString("en-CA"),
       completed: false,
     });
-    expect(overdue(all).length > overduecount);
+    expect(overdue(all).length).toBe(overduecount + 1);
   });
   test("Due today tasks", () => {
     const duetodaycount = dueToday(all).length;
@@ -43,7 +43,7 @@ describe("TODO test suite", () => {
       dueDate: today.toLocaleDateString("en-CA"),
       completed: false,
     });
-    expect(dueToday(all).length > duetodaycount);
+    expect(dueToday(all).length).toBe(duetodaycount + 1);
   });
   test("Due later tasks", () => {
     const duelatercount = dueLater(all).length;
@@ -52,6 +52,6 @@ describe("TODO test suite", () => {
       dueDate: tommorow.toLocaleDateString("en-CA"),
       completed: false,
     });
-    expect(dueLater(all).length > duelatercount);
+    expect(dueLater(all).length).toBe(duelatercount + 1);
   });
 });
