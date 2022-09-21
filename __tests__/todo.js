@@ -28,30 +28,30 @@ describe("TODO test suite", () => {
     expect(all[0].completed).toBe(true);
   });
   test("Over due tasks", () => {
-    const overduecount = overdue(all).length;
+    const overduecount = overdue().length;
     add({
       title: "work",
       dueDate: yesterday.toLocaleDateString("en-CA"),
       completed: false,
     });
-    expect(overdue(all).length).toBe(overduecount + 1);
+    expect(overdue().length).toBe(overduecount + 1);
   });
   test("Due today tasks", () => {
-    const duetodaycount = dueToday(all).length;
+    const duetodaycount = dueToday().length;
     add({
       title: "work1",
       dueDate: today.toLocaleDateString("en-CA"),
       completed: false,
     });
-    expect(dueToday(all).length).toBe(duetodaycount + 1);
+    expect(dueToday().length).toBe(duetodaycount + 1);
   });
   test("Due later tasks", () => {
-    const duelatercount = dueLater(all).length;
+    const duelatercount = dueLater().length;
     add({
       title: "work2",
       dueDate: tommorow.toLocaleDateString("en-CA"),
       completed: false,
     });
-    expect(dueLater(all).length).toBe(duelatercount + 1);
+    expect(dueLater().length).toBe(duelatercount + 1);
   });
 });
